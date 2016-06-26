@@ -12,7 +12,7 @@ plugins/
 
 # when use sass, do not commit css files
 #/www/css/
-#/www/lib/
+/www/lib/
 
 # do not commit generated images
 /resources/android/
