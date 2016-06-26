@@ -1,5 +1,9 @@
+/**
+ * Home Module
+ * @namespace Modules
+ */
 (function() {
-  'use strict';
+    'use strict';
 
-  angular.module('easy-music.home', []);
+    angular.module('easy-music.home', []);
 })();

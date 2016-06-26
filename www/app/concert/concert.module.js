@@ -1,5 +1,9 @@
+/**
+ * Concert Module
+ * @namespace Modules
+ */
 (function() {
-  'use strict';
+    'use strict';
 
-  angular.module('easy-music.concert', []);
+    angular.module('easy-music.concert', []);
 })();

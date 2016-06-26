@@ -1,5 +1,9 @@
+/**
+ * Album Module
+ * @namespace Modules
+ */
 (function() {
-  'use strict';
+    'use strict';
 
-  angular.module('easy-music.album', []);
+    angular.module('easy-music.album', []);
 })();

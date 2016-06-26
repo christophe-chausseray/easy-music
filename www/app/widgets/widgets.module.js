@@ -1,5 +1,9 @@
+/**
+ * Widget Module
+ * @namespace Modules
+ */
 (function() {
-  'use strict';
+    'use strict';
 
-  angular.module('easy-music.widgets', []);
+    angular.module('easy-music.widgets', []);
 })();

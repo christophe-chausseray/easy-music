@@ -1,60 +1,60 @@
 /**
  * Map
- * @namespace Widgets
+ * @namespace Directives
  */
 (function() {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('easy-music.widgets')
-    .directive('map', map)
-  ;
-
-  /**
-   * @name map
-   * @desc Initialize and display the Google Map.
-   * @memberOf Widgets
-   */
-  function map() {
-    var directive = {
-      restrict: 'E',
-      scope: {
-        onCreate: '&'
-      },
-      link: link
-    };
-
-    return directive;
+    angular
+        .module('easy-music.widgets')
+        .directive('map', map)
+    ;
 
     /**
-     * @name link
-     * @desc Initialize the Google Map.
-     * @memberOf Widgets.map
+     * @name map
+     * @desc Initialize and display the Google Map.
+     * @memberOf Directives
      */
-    function link($scope, $element, attrs) {
-      /**
-       * @name initialize
-       * @desc Create a Google Map instance in the scope.
-       * @memberOf Widgets.map.link
-       */
-      function initialize() {
-        var mapOptions = {
-          zoom: 12,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+    function map() {
+        var directive = {
+            restrict: 'E',
+            scope: {
+                onCreate: '&'
+            },
+            link: link
         };
 
-        var map = new google.maps.Map($element[0], mapOptions);
+        return directive;
 
-        $scope.onCreate({map: map});
+        /**
+         * @name link
+         * @desc Initialize the Google Map.
+         * @memberOf Directives.map
+         */
+        function link($scope, $element, attrs) {
+            /**
+             * @name initialize
+             * @desc Create a Google Map instance in the scope.
+             * @memberOf Directives.map.link
+             */
+            function initialize() {
+                var mapOptions = {
+                    zoom: 12,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
 
-        // Stop the side bar from dragging when mousedown/tapdown on the map
-        google.maps.event.addDomListener($element[0], 'mousedown', function (e) {
-          e.preventDefault();
-          return false;
-        });
-      }
+                var map = new google.maps.Map($element[0], mapOptions);
 
-      initialize();
+                $scope.onCreate({map: map});
+
+                // Stop the side bar from dragging when mousedown/tapdown on the map
+                google.maps.event.addDomListener($element[0], 'mousedown', function (e) {
+                    e.preventDefault();
+                    return false;
+                });
+            }
+
+            initialize();
+        }
     }
-  }
 })();
