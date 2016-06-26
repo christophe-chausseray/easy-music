@@ -1,0 +1,31 @@
+<ion-view view-title="Music">
+  <ion-content>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search" ng-model="vm.name" ng-blur="vm.search()">
+      </label>
+    </div>
+    <ion-list>
+      <ion-item collection-repeat="track in vm.tracks">
+        <ion-audio-track track="track">
+          <div class="list list-inset">
+            <div class="item item-thumbnail-left">
+              <img ng-src="{{ track.album.images[0].url }}" ui-sref="album({ id: track.album.id })">
+              <h2>{{ track.name }}</h2>
+              <p>{{ track.artists[0].name }}</p>
+              <ion-audio-controls>
+                <a class="button button-icon icon" ion-audio-play></a>
+                <ion-spinner icon="ios"></ion-spinner>
+              </ion-audio-controls>
+            </div>
+            <div class="item">
+              <ion-audio-progress-bar track="track" display-time></ion-audio-progress-bar>
+            </div>
+          </div>
+        </ion-audio-track>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+
