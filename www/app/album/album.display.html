@@ -1,0 +1,40 @@
+<ion-view view-title="Album">
+  <ion-content>
+      <div class="row">
+        <div class="col col-20">
+          <img ng-src="{{ ::vm.albumDetails.images[2].url }}">
+        </div>
+        <div class="col col-80">
+          <h1>{{ ::vm.albumDetails.name }}</h1>
+          <p>Release in : {{ ::vm.albumDetails.release_date }}</p>
+          <p>Artists : {{ ::vm.albumDetails.artists[0].name }}</p>
+          <ion-list>
+            <p>Copyrights</p>
+            <ion-item ng-repeat="copyright in vm.albumDetails.copyrights track by $index">
+              <p>{{ copyright.text }}</p>
+            </ion-item>
+          </ion-list>
+        </div>
+      </div>
+      <ion-list>
+        <ion-item ng-repeat="track in vm.tracks track by $index">
+          <ion-audio-track track="track">
+            <div class="list list-inset">
+              <div class="item item-thumbnail-left">
+                <h2>{{ track.name }}</h2>
+                <p>{{ track.artists[0].name }}</p>
+                <ion-audio-controls>
+                  <a class="button button-icon icon" ion-audio-play></a>
+                  <ion-spinner icon="ios"></ion-spinner>
+                </ion-audio-controls>
+              </div>
+              <div class="item">
+                <ion-audio-progress-bar track="track" display-time></ion-audio-progress-bar>
+              </div>
+            </div>
+          </ion-audio-track>
+        </ion-item>
+      </ion-list>
+  </ion-content>
+</ion-view>
+
